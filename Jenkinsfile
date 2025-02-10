@@ -23,10 +23,11 @@ pipeline{
         stage("Plan Terraform"){
             steps{
                 sh 'terraform plan' // Plan Terraform
+                input(message: "Do you want to continue?", ok: "Proceed") // Input to continue
             }
-            input(message: "Do you want to continue?", ok: "Proceed") // Input to continue
         }
 
+    
         stage("Apply/Destroy Terraform"){
             steps{
                 sh "terraform $action -auto-approve" // Apply/Destroy Terraform
