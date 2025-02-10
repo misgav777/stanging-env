@@ -7,7 +7,7 @@ resource "aws_instance" "staging_instance" {
     user_data              = file("user_data.sh")
 
     tags = {
-    Name        = "${var.project_name}-sg"
+    Name        = "${var.project_name}-${var.environment}-instance"
     Environment = var.environment
     Project     = var.project_name
   }

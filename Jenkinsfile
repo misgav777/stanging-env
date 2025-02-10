@@ -8,6 +8,12 @@ pipeline{
             }
         }
 
+        stage("fmt Terraform"){
+            steps{
+                sh 'terraform fmt' // Format Terraform
+            }
+        }
+
         stage("Validate Terraform"){
             steps{
                 sh 'terraform validate' // Validate Terraform
@@ -18,6 +24,7 @@ pipeline{
             steps{
                 sh 'terraform plan' // Plan Terraform
             }
+            input(message: "Do you want to continue?", ok: "Proceed") // Input to continue
         }
 
         stage("Apply/Destroy Terraform"){
