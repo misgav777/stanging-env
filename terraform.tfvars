@@ -1,0 +1,6 @@
+aws_region = "ap-south-1"
+project_name = "solar-system"
+environment = "staging"
+key_name = "develeap"
+instance_type = "t3a.small"
+instance_profile = "SSMInstanceProfile"
